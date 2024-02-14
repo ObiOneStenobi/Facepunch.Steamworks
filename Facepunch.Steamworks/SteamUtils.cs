@@ -30,6 +30,8 @@ namespace Steamworks
 			Dispatch.Install<LowBatteryPower_t>( x => OnLowBatteryPower?.Invoke( x.MinutesBatteryLeft ), server );
 			Dispatch.Install<SteamShutdown_t>( x => SteamClosed(), server );
 			Dispatch.Install<GamepadTextInputDismissed_t>( x => OnGamepadTextInputDismissed?.Invoke( x.Submitted ), server );
+			Dispatch.Install<SteamInputDeviceConnected_t>( x => OnInputDeviceConnected?.Invoke(), server );
+			Dispatch.Install<SteamInputDeviceDisconnected_t>( x => OnInputDeviceDisconnected?.Invoke(), server );
 		}
 
 		private static void SteamClosed()
@@ -38,6 +40,16 @@ namespace Steamworks
 
 			OnSteamShutdown?.Invoke();
 		}
+		
+		/// <summary>
+		/// Invoked when a new input device is connected.
+		/// </summary>
+		public static event Action OnInputDeviceConnected;
+		
+		/// <summary>
+		/// Invoked when an input device is disconnected.
+		/// </summary>
+		public static event Action OnInputDeviceDisconnected;
 
 		/// <summary>
 		/// Invoked when the country of the user changed.

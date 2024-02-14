@@ -101,6 +101,17 @@ namespace Steamworks
 
 			return Internal.GetGlyphSVGForActionOrigin( origin, 0 );
 		}
+		
+		/// <summary>
+		/// Trigger a vibration event on supported controllers.
+		/// </summary>
+		/// <param name="controller"></param>
+		/// <param name="leftMotor">The typical max value of an unsigned short is 65535</param>
+		/// <param name="rightMotor">The typical max value of an unsigned short is 65535</param>
+		public static void TriggerVibration(Controller controller, ushort leftMotor, ushort rightMotor)
+		{
+			Internal.TriggerVibration(controller.Handle, leftMotor, rightMotor );
+		}
 
 		internal static Dictionary<string, InputDigitalActionHandle_t> DigitalHandles = new Dictionary<string, InputDigitalActionHandle_t>();
 		internal static InputDigitalActionHandle_t GetDigitalActionHandle( string name )
