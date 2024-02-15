@@ -15,6 +15,8 @@ namespace Steamworks
 		{
 			SetInterface( server, new ISteamInput( server ) );
 			if ( Interface.Self == IntPtr.Zero ) return false;
+			
+			Internal.Init(true);
 
 			return true;
 		}
