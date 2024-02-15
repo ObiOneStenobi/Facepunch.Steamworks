@@ -114,6 +114,19 @@ namespace Steamworks
 		{
 			Internal.TriggerVibration(controller.Handle, leftMotor, rightMotor );
 		}
+		
+		/// <summary>
+		/// Trigger an extended vibration event on supported controllers.
+		/// </summary>
+		/// <param name="controller"></param>
+		/// <param name="leftMotor"></param>
+		/// <param name="rightMotor"></param>
+		/// <param name="leftTrigger"></param>
+		/// <param name="rightTrigger"></param>
+		public static void TriggerVibrationExtended(Controller controller, ushort leftMotor, ushort rightMotor, ushort leftTrigger, ushort rightTrigger)
+		{
+			Internal.TriggerVibrationExtended(controller.Handle, leftMotor, rightMotor, leftTrigger, rightTrigger );
+		}
 
 		internal static Dictionary<string, InputDigitalActionHandle_t> DigitalHandles = new Dictionary<string, InputDigitalActionHandle_t>();
 		internal static InputDigitalActionHandle_t GetDigitalActionHandle( string name )
