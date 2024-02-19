@@ -1499,7 +1499,7 @@ namespace Steamworks
 	//
 	// ESteamControllerPad
 	//
-	internal enum SteamControllerPad : int
+	public enum SteamControllerPad : int
 	{
 		Left = 0,
 		Right = 1,

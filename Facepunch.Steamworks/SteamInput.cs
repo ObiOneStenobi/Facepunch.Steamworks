@@ -103,6 +103,18 @@ namespace Steamworks
 
 			return Internal.GetGlyphSVGForActionOrigin( origin, 0 );
 		}
+        
+		/// <summary>
+		/// The typical max value of an unsigned short is 65535, which means the longest haptic pulse you can trigger with this method has a duration of 0.065535 seconds (ie, less than 1/10th of a second).
+		/// This function should be thought of as a low-level primitive meant to be repeatedly used in higher-level user functions to generate more sophisticated behavior.
+		/// </summary>
+		/// <param name="controller"></param>
+		/// <param name="targetPad"></param>
+		/// <param name="durationMicroSec"></param>
+		public static void TriggerHapticPulse(Controller controller, SteamControllerPad targetPad, ushort durationMicroSec)
+		{
+			Internal.Legacy_TriggerHapticPulse( controller.Handle, targetPad, durationMicroSec );
+		}
 		
 		/// <summary>
 		/// Trigger a vibration event on supported controllers.
