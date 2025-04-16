@@ -172,5 +172,10 @@ namespace Steamworks
 			ActionSets.Add( name, val );
 			return val;
 		}
+
+		public static int GetConnectedControllersCount()
+		{
+			return SteamInput.Internal.GetConnectedControllers( SteamInput.queryArray );
+		}
 	}
 }
