@@ -1,0 +1,44 @@
+Download the latest Steamworks SDK that Facepunch.Steamworks is compatible with. As of right now it is version 150, available for download here: https://partner.steamgames.com/downloads/steamworks_sdk.zip
+
+Copy the following folder and it's contents into your Unity project: \sdk\redistributable_bin
+
+Clone the repository locally
+
+Open the solution file (Facepunch.Steamworks.sln) in Visual Studio
+
+In the toolbar select build > build solution
+
+Navigate to the Face.Steamworks folder and copy the contents of: \Facepunch.Steamworks\bin\Debug\net46 to your Unity project.
+
+The last step is to set the .dll files to have the correct settings. Follow these steps in Unity now that you've copied the files over:
+
+Facepunch.Steamworks.Posix.dll:
+
+Any Platform: Unchecked
+Include Platforms: Editor, Standalone
+Platform Settings:
+CPU: Any
+OS: OSX
+Switch tabs:
+Windows: all unchecked
+Linux and OSX: all checked
+Facepunch.Steamworks.Win32.dll:
+
+Any Platform: Checked
+Include Platforms: Both Unchecked
+Platform Settings:
+CPU: x86
+OS: Windows
+Switch tabs:
+Windows: check x86
+everything else: Unchecked
+Facepunch.Steamworks.Win64.dll:
+
+Any Platform: Checked
+Include Platforms: Both Unchecked
+Platform Settings:
+CPU: x86_64
+OS: Windows
+Switch tabs:
+Windows: check x86_64
+Linux and OSX: Unchecked
